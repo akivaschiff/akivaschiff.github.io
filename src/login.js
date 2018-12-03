@@ -38,7 +38,7 @@ function initClient() {
     authorizeButton.onclick = handleAuthClick;
     signoutButton.onclick = handleSignoutClick;
   }, function(error) {
-    getScope('HomeController').error = (JSON.stringify(error, null, 2))
+    setErrorPage(JSON.stringify(error, null, 2));
   });
 }
 

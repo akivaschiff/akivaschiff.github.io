@@ -38,7 +38,8 @@ function initClient() {
     authorizeButton.onclick = handleAuthClick;
     signoutButton.onclick = handleSignoutClick;
   }, function(error) {
-    setErrorPage(JSON.stringify(error, null, 2));
+    console.error(JSON.stringify(error, null, 2));
+    setErrorPage(JSON.stringify(error, null, 2)); 
   });
 }
 

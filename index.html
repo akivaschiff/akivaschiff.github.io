@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <title>My Salary</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  </head>
+  <body ng-controller="HomeController">
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+    <div class="alert alert-danger" role="alert" ng-if='error'>{{ error }}</div>
+    <div class="alert alert-warning" role="alert" ng-repeat="warning in warnings track by $index">{{ warning }}</div>
+    <table class="table table-bordered" ng-repeat="(monthName, monthData) in months">
+      <thead>
+        <tr>
+          <th>חודש</th>
+          <th>מספר משמרות</th>
+          <th>מספר שעות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ monthName }}</td>
+          <td>{{ monthData.shiftsPerMonth }}</td>
+          <td>{{ monthData.hoursPerMonth }}</td>
+        </tr>
+      <tbody>
+    </table>
+
+    <script type="text/javascript" src="./src/events.js"></script>
+    <script type="text/javascript" src="./src/salary.js"></script>
+    <script type="text/javascript" src="./src/formatter.js"></script>
+    <script type="text/javascript" src="./src/login.js"></script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>

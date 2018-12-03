@@ -23,7 +23,7 @@ function breakMishmeretToHours(mishmeret) {
 async function getAllMishmarotEvents() {
   const eventResponse = await gapi.client.calendar.events.list({
     'calendarId': 'primary',
-    'timeMin': moment().subtract(3, 'month').toISOString(),
+    'timeMin': moment().subtract(4, 'month').toISOString(),
     'timeMax': moment().toISOString(),
     'singleEvents': true,
     'showDeleted': false,
